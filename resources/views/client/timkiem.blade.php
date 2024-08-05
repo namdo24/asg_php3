@@ -12,7 +12,7 @@
                     <div class="col-md-3 mt-4">
                         <div class="card">
                             <div class="image-container">
-                                <a href="{{ url('chitiet', $t->id) }}"><img src="/layout/images/postimg/{{ $t->anh }}"
+                                <a href="{{ url('chitiet', $t->id) }}"><img src="{{ \Storage::url($t->anh) }}"
                                         alt="Image 1"></a>
                             </div>
                             <div class="card-body">

@@ -13,7 +13,7 @@
             </div>
             <figure class="tg-postimg">
                 <span class="tg-postfeatured"><i class="fa fa-bolt"></i></span>
-                <img src="/layout/images/postimg/{{ $ct->anh }}" alt="image description">
+                <img src="{{ \Storage::url($ct->anh) }}" alt="image description">
             </figure>
 
             <div class="tg-description">

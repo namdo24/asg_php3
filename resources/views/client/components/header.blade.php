@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
-                    <div class="tg-leftbox" style="margin-top: 8px;">
+                    <div class="tg-leftbox" style="margin-top: 8px; color:aliceblue">
                         Chúc bạn ngày mới tốt lành
                     </div>
                     <div class="tg-rightbox">
@@ -17,79 +17,96 @@
                         <ul>
                             <li class="dropdown tg-themedropdown">
                                 <button class="tg-btndropdown" id="tg-logindropdown" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">đăng
-                                    nhập</button>
-                                <div class="tg-dropdownbox" aria-labelledby="tg-logindropdown">
-                                    <form class="tg-formtheme tg-formlogin">
-                                        <fieldset>
-                                            <h2>Welcome, Login to Your Account</h2>
-                                            <div class="form-group">
-                                                <input type="email" name="email" class="form-control"
-                                                    placeholder="Enter your Email">
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    style="color: white"><a href="{{ route('login') }}"
+                                        style="text-decoration: none; color: white;">
+                                        @if (Auth::check())
+                            <li><a href="{{ route('logout') }}"></a></li>
+                        @else
+                            <li><a href="{{ route('login') }}"></a></li>
+                            <li><a href="{{ route('register') }}"></a></li>
+                            @endif
+                            </a>
+                            </button>
+                            <div class="tg-dropdownbox" aria-labelledby="tg-logindropdown">
+                                <form class="tg-formtheme tg-formlogin">
+                                    <fieldset>
+                                        <h2>Welcome, Login to Your Account</h2>
+                                        <div class="form-group">
+                                            <input type="email" name="email" class="form-control"
+                                                placeholder="Enter your Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="tg-inputicon">
+                                                <input type="password" name="password" class="form-control tg-password"
+                                                    placeholder="Your Password">
+                                                <i class="tg-btnshowpassword"></i>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="tg-inputicon">
-                                                    <input type="password" name="password"
-                                                        class="form-control tg-password"
-                                                        placeholder="Your Password">
-                                                    <i class="tg-btnshowpassword"></i>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <span class="tg-checkbox">
-                                                    <input type="checkbox" value="yes" id="tg-remember">
-                                                    <label for="tg-remember">Remember Me</label>
-                                                </span>
-                                                <a class="tg-btnforgot" href="#">Forgot Password?</a>
-                                            </div>
-                                            <div class="form-group">
-                                                <button class="tg-btn" type="submit">Login</button>
-                                            </div>
-                                            <div class="tg-notebox">
-                                                <p>Don’t Have Account? <a href="#">Create New Account</a>
-                                                </p>
-                                            </div>
-                                        </fieldset>
-                                    </form>
-                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="tg-checkbox">
+                                                <input type="checkbox" value="yes" id="tg-remember">
+                                                <label for="tg-remember">Remember Me</label>
+                                            </span>
+                                            <a class="tg-btnforgot" href="#">Forgot Password?</a>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="tg-btn" type="submit">Login</button>
+                                        </div>
+                                        <div class="tg-notebox">
+                                            <p>Don’t Have Account? <a href="#">Create New Account</a>
+                                            </p>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
                             </li>
                             <li class="dropdown tg-themedropdown">
                                 <button class="tg-btndropdown" id="tg-registerdropdown" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">đăng
-                                    ký</button>
-                                <div class="tg-dropdownbox" aria-labelledby="tg-registerdropdown">
-                                    <form class="tg-formtheme tg-formlogin">
-                                        <fieldset>
-                                            <h2>Create New Account</h2>
-                                            <div class="form-group">
-                                                <input type="text" name="fullname" class="form-control"
-                                                    placeholder="Full Name">
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    style="color: white"><a href="{{ route('register') }}"
+                                        style="text-decoration: none; color: white;">
+                                        @if (Auth::check())
+                                        <li>Hi,{{ Auth::user()->name }}!</p></li>
+                            <li><a style="text-decoration: none; color: white;" href="{{ route('logout') }}">Đăng
+                                    xuất</a></li>
+                        @else
+                            <li><a href="{{ route('login') }}">Đăng nhập</a></li>
+                            <li><a href="{{ route('register') }}">Đăng ký</a></li>
+                            @endif
+                            </a></button>
+                            <div class="tg-dropdownbox" aria-labelledby="tg-registerdropdown">
+                                <form class="tg-formtheme tg-formlogin">
+                                    <fieldset>
+                                        <h2>Create New Account</h2>
+                                        <div class="form-group">
+                                            <input type="text" name="fullname" class="form-control"
+                                                placeholder="Full Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="phone" class="form-control"
+                                                placeholder="Phone">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" name="email" class="form-control"
+                                                placeholder="Email* (Your email address will not be published.)">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="tg-inputicon">
+                                                <input type="password" name="password" class="form-control tg-password"
+                                                    placeholder="Your Password">
+                                                <i class="tg-btnshowpassword"></i>
                                             </div>
-                                            <div class="form-group">
-                                                <input type="text" name="phone" class="form-control"
-                                                    placeholder="Phone">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="email" name="email" class="form-control"
-                                                    placeholder="Email* (Your email address will not be published.)">
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="tg-inputicon">
-                                                    <input type="password" name="password"
-                                                        class="form-control tg-password"
-                                                        placeholder="Your Password">
-                                                    <i class="tg-btnshowpassword"></i>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <button class="tg-btn" type="submit">Register Now</button>
-                                            </div>
-                                            <div class="tg-notebox">
-                                                <p>Already Have Account? <a href="#">Login Now</a></p>
-                                            </div>
-                                        </fieldset>
-                                    </form>
-                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="tg-btn" type="submit">Register Now</button>
+                                        </div>
+                                        <div class="tg-notebox">
+                                            <p>Already Have Account? <a href="#">Login Now</a></p>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
                             </li>
                         </ul>
                     </div>
@@ -102,13 +119,12 @@
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <div class="" style="display: flex; align-items: center;">
-                    <strong class="tg-logo"><a href="{{url('/')}}"><img src="/layout/images/logo.png"
+                    <strong class="tg-logo"><a href="{{ url('/') }}"><img src="/layout/images/logo.png"
                                 alt="logo"></a></strong>
-                    <form action="{{url('timkiem')}}" style="display: flex; align-items: center;">
+                    <form action="{{ url('timkiem') }}" style="display: flex; align-items: center;">
                         <input
                             style="margin-left: 200px; border-radius: 10px 0 0 10px ; margin-top: 20px; width: 500px; height: 40px;"
-                            type="text" name="keyword" id=""
-                            placeholder="nhập nội dung muốn tìm ">
+                            type="text" name="keyword" id="" placeholder="nhập nội dung muốn tìm ">
                         <button type="submit"
                             style="margin-top: 20px;border-radius:0 10px  10px 0; width: 80px; height: 40px; display: flex; align-items: center; background-color: bisque;"><i
                                 class="lnr lnr-magnifier">Tìm kiếm</i></button>
@@ -116,7 +132,7 @@
                 </div>
                 <div class="tg-navigationarea">
                     <nav id="tg-nav" class="tg-nav">
-                        <div  class="navbar-header">
+                        <div class="navbar-header">
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                                 data-target="#tg-navigation" aria-expanded="false">
                                 <span class="sr-only">Toggle navigation</span>
@@ -128,9 +144,10 @@
                         <div id="tg-navigation" class="collapse navbar-collapse tg-navigation">
                             <ul>
                                 @foreach ($danhmuc as $dm)
-                                <li>
-                                    <a style="text-decoration: none" href="{{url('tintheoloai',$dm->id)}}"><b>{{$dm->name}}</b></a>
-                                </li>
+                                    <li>
+                                        <a style="text-decoration: none"
+                                            href="{{ url('tintheoloai', $dm->id) }}"><b>{{ $dm->name }}</b></a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>

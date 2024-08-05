@@ -2,7 +2,7 @@
 <li>
     <figure>
         <a href="{{url('chitiet',$t->id)}}"><img
-                src="/layout/images/postimg/{{$t->anh}}"
+                src="{{ \Storage::url($t->anh) }}"
                 alt="image description" width="100px"></a>
         
     </figure>

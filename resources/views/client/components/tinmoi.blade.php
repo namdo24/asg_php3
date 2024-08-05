@@ -2,7 +2,7 @@
     @foreach ($tinmoi as $t)
     <figure class="tg-postimg">
         <a href="{{url('chitiet',$t->id)}}"><img
-                src="/layout/images/postimg/{{$t->anh}}"
+                src="{{ \Storage::url($t->anh) }}"
                 alt="image description"></a>
     </figure>
     <div class="tg-postcontent">
